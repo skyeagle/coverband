@@ -134,7 +134,7 @@ module Coverband
         require "coverband/adapters/web_service_store"
         Coverband::Adapters::WebServiceStore.new(service_url)
       else
-        Coverband::Adapters::RedisStore.new(Redis.new(url: redis_url), redis_store_options)
+        Coverband::Adapters::RedisStore.new(Redis.new(url: redis_url, driver: :hiredis), redis_store_options)
       end
     end
 
